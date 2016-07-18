@@ -1,11 +1,11 @@
 // ConsoleApplication2.cpp : Defines the entry point for the console application.
 //
 
-//#include "stdafx.h"
+#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <thread>
-//#include <cstring>
+#include <cstring>
 
 using namespace std;
 
@@ -35,7 +35,7 @@ int main()
 	char open_Behat_Folder_Command[64];
 	strcpy_s(open_Behat_Folder_Command, open_Behat_Folder.c_str());
 	system(open_Behat_Folder_Command);
-
+	
 	strcpy_s(command, result.c_str());
 	cout <<open_Behat_Folder_Command << "\n";
 	int counter = 0;
