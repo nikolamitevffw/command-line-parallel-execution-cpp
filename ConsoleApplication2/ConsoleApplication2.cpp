@@ -6,8 +6,10 @@
 #include <string>
 #include <thread>
 #include <cstring>
+#include <stdio.h>
 #include <stdlib.h>
 
+ 
 using namespace std;
 
 int main()
@@ -18,6 +20,7 @@ int main()
 	string behat_Profile;
 	string behat_Features_Folder;
 	string behat_Bin = "bin/behat -p ";
+	
 	
 	/*char command_2 [] = "bin/behat -p defaultTest features/Nikola/ParallelTest/";
 	char behat_Folder [] = "cd /home/mitev/Desktop/qa";
@@ -47,6 +50,17 @@ int main()
 	strcpy(command, result.c_str());
 
 	cout<< "You will execute "<<thread_Count<<" threads with the following command: '"<<command<<"'.\n";
+
+	for (size_t i = 0; i < thread_Count; ++i) {
+		if ((pids[i] = fork()) < 0) {
+			perror("fork");
+			abort();
+		}
+		else if (pids[i] == 0) {
+			DoWorkInChild();
+			exit(0);
+		}
+	}
 
 	
 
