@@ -41,14 +41,16 @@ int main()
 
 	cout<< "You will execute "<<thread_Count<<" with the following command:\n"<<command;
 
-	int counter = 0;
-	while (counter < thread_Count){
+	size_t i = 0;
+	while (i <= thread_Count){
+		i++;
 		thread thread;
-		thread::id(counter);
+		thread::id(i);
 		system(command);
-		counter += 1;
 	}
 
 	system("pause");
     return 0;
 }
+
+
