@@ -1,23 +1,24 @@
 // ConsoleApplication2.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <thread>
 
 using namespace std;
 
-int thread_Count;
-char command [128];
-string path_To_Behat_Folder;
-string behat_Profile;
-string behat_Features_Folder;
-string behat_Bin = "behat/bin -p ";
+
 
 int main()
 {
-	
+	int thread_Count;
+	char command [128];
+	string path_To_Behat_Folder;
+	string behat_Profile;
+	string behat_Features_Folder;
+	string behat_Bin = "behat/bin -p ";
+
 	cout << "Enter number of threads you want to run: ";
 	cin >> thread_Count;
 	cout << "Enter path to behat folder: ";
@@ -42,21 +43,9 @@ int main()
 	while (counter < thread_Count){
 		thread thread;
 		thread::id(counter);
-		executeCommand(command);
+		system(command);
 	}
 
 	system("pause");
     return 0;
 }
-
-string executeCommand(char command[]) {
-	char buffer[128];
-	string result = "";
-	shared_ptr<FILE> pipe(_popen(command, "r"), _pclose);
-	if (!pipe) throw runtime_error("popen() failed!");
-	while (!feof(pipe.get())){
-		if (fgets(buffer, 128, pipe.get()) != NULL)
-			result += buffer;
-	}
-}
-
