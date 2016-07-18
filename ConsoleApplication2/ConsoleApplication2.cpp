@@ -8,8 +8,6 @@
 
 using namespace std;
 
-
-
 int main()
 {
 	int thread_Count;
@@ -35,7 +33,7 @@ int main()
 
 	char open_Behat_Folder_Command[64];
 	strcpy_s(open_Behat_Folder_Command, open_Behat_Folder.c_str());
-	//system(open_Behat_Folder_Command);
+	system(open_Behat_Folder_Command);
 
 	strcpy_s(command, result.c_str());
 	cout <<open_Behat_Folder_Command << "\n";
