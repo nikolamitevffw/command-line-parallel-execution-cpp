@@ -41,10 +41,10 @@ int main()
 
 	string result;
 	result = behat_Bin + behat_Profile +" features/"+ behat_Features_Folder;
-	string open_Folder_command = "cd /";
+	/*string open_Folder_command = "cd /";
 	string open_Behat_Folder = open_Folder_command + path_To_Behat_Folder;
 
-	/*char open_Behat_Folder_Command[64];
+	char open_Behat_Folder_Command[64];
 	strcpy(open_Behat_Folder_Command, open_Behat_Folder.c_str());
 	cout << open_Behat_Folder_Command<<"\n";
 	system(open_Behat_Folder_Command);*/
