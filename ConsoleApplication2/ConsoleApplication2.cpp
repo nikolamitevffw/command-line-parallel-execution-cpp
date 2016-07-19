@@ -8,6 +8,7 @@
 #include <cstring>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
  
 using namespace std;
@@ -20,6 +21,7 @@ int main()
 	string behat_Profile;
 	string behat_Features_Folder;
 	string behat_Bin = "bin/behat -p ";
+	
 	
 	
 	/*char command_2 [] = "bin/behat -p defaultTest features/Nikola/ParallelTest/";
@@ -51,13 +53,14 @@ int main()
 
 	cout<< "You will execute "<<thread_Count<<" threads with the following command: '"<<command<<"'.\n";
 
+	pid_t pids[thread_Count];
 	for (size_t i = 0; i < thread_Count; ++i) {
 		if ((pids[i] = fork()) < 0) {
 			perror("fork");
 			abort();
 		}
 		else if (pids[i] == 0) {
-			DoWorkInChild();
+			system(command);
 			exit(0);
 		}
 	}
